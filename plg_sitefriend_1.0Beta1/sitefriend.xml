@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.5" type="plugin" group="user" method="upgrade">
+	<name>Site Friend</name>
+	<author>SuburbaNS</author>
+	<creationDate>November 2012</creationDate>
+	<copyright>Copyright SuburbaNS(C) 2012. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<authorEmail>support@suburbans.org</authorEmail>
+	<authorUrl>http://www.suburbans.org</authorUrl>
+	<version>1.0.Beta1</version>
+	<description>Sitefriend is a JomSocial first friend of a newly created user. It sends the friend request to user as well as personal message.</description>
+	<files>
+		<file plugin="sitefriend">sitefriend.php</file>
+		<filename>index.html</filename>
+	</files>
+        <config>
+        	<fields name="params">
+            	<fieldset name="basic">
+					<field name="friendid" type="text" default="42" label="Site Friend ID)" description="The ID of site friend" size="4" />
+					<field name="sendpm" type="list" default="1" label="Send private message" description="Send a private message when user register.">
+						<option value="1">Yes</option>
+						<option value="0">No</option>
+					</field>
+				</fieldset>
+				<fieldset name="pmsettings" label="Private Message Settings">
+					<field name="pmsubject" type="text" default="Welcome to our site" label="Subject" description="Subject of the personal message" size="50" />
+					<field name="pmmessage" type="textarea" rows="15" cols="30" default="Hello {target},\n\nAllow me to take a moment and welcome You to %1$s.\nWe have a lot available features.\n \n* A friends and profile system\n* Your own photo and video albums\n* Your own groups and events announcements\n\nThere are so many more to discover, I hope you enjoy your time here.\n \n\n \n\n--\nSincerly,\nSite Management\n%2$s\n"  label="Your message" description="This is the message that will be sent to the user. Use {target} tag to mark the target username. Tag %1$s is Sitename while %2$s is FQDN"/>		
+          		</fieldset>
+				<!-- Email settings will be added later, when we finish the emailing options
+				<fieldset name="emailsettings" label="Email Settings">
+					<field name="sendwelcome" type="list" default="1" label="Send welcome mail" description="Send a welcome e-mail when a user registers.">
+						<option value="1">Yes</option>
+						<option value="0">No</option>
+					</field>
+					<field name="sender" type="text" default="42" label="Sender ID" description="The ID of the sender" size="4" />
+					<field name="subject" type="text" default="Welcome to our site" label="Subject" description="Subject" size="50" />
+					<field name="message" type="textarea" rows="15" cols="30" default="Hello {target}\n\nWelcome to our site. Hope you enjoy your stay. \nSincerely, \n\nSite Management"  label="Your message" description="Use {target} tag to mark the target username."/>		
+          		</fieldset> -->
+        	</fields>
+        </config>
+</extension>
