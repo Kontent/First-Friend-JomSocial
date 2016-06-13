@@ -1,14 +1,6 @@
 <?php
 /**
- * @version             $Id: sitefriend.php 02.11.2012  SuburbaNS Team
- * @package             Site Friend
- * @subpackage  		User
- * @copyright   		Copyright (C) 2009 - 2012 SuburbaNS Solutions. All rights reserved.
  * @license             http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL see LICENSE.txt
- * Profile Viewers is free software. This version may have been modified pursuant
- * to the GNU General Public License, and as distributed it includes or
- * is derivative of works licensed under the GNU General Public License or
- * other free or open source software licenses.
  */
 // no direct access
 
@@ -34,9 +26,6 @@ class plgUserSiteFriend extends JPlugin
 			
 			// Send Friend Request
 			$this->sendRequest($user['id'], $friendid);
-		
-			// To do: Send Joomla Email
-			//$this->sendWelcomeEmail($user['id']);
 			
 			//Send PM
 			$vars['id'] = $this->params->get( 'friendid') ;
@@ -52,21 +41,6 @@ class plgUserSiteFriend extends JPlugin
 		$friends =& CFactory::getModel('friends');
 		$friends->addFriend($receiver, $sender);	
 	}
-	
-	//To Do: Joomla email
-	/*function sendWelcomeEmail($receiver)
-	{
-		$sendwelcome = $this->params->get( 'sendwelcome', 0);
-		
-		if ($sendwelcome != 0 )
-		{
-			$sender = $this->params->get( 'friendid');
-			$subject = $this->params->get( 'subject' , '' );
-			$message = $this->params->get( 'message' , '' );
-			$notify = new CNotificationLibrary();
-			$notify->add( 'system.welcome' , $sender , $receiver , $subject , $message );
-		}
-	}*/
 	
 	function sendPm($vars)
 	{

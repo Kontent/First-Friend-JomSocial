@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="user" method="upgrade">
+	<name>First Friend (JomSocial)</name>
+	<author></author>
+	<creationDate>June 2016</creationDate>
+	<copyright>2016</copyright>
+	<license>http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<authorEmail></authorEmail>
+	<authorUrl></authorUrl>
+	<version>1.0</version>
+	<description>Automatically add the first JomSocial friend to newly registered users and send the user a friend request with a personal message.</description>
+	<files>
+		<file plugin="sitefriend">js_firstfriend.php</file>
+		<filename>index.html</filename>
+	</files>
+        <config>
+        	<fields name="params">
+            	<fieldset name="basic">
+					<field name="friendid" type="text" default="" label="User ID" description="The User ID of the user to automatically add as a friend upon registration. Separate multiple IDs with a comma." />
+					<field name="sendpm" type="list" default="1" label="Send Private Message" description="Send a private message to new users upon registration.">
+						<option value="1">Yes</option>
+						<option value="0">No</option>
+					</field>
+				</fieldset>
+				<fieldset name="pmsettings" label="Private Message Settings">
+					<field name="pmsubject" type="text" default="Welcome to our site" label="Subject" description="Add a subject for the personal message." size="50" />
+					<field name="pmmessage" type="textarea" rows="15" cols="30" default="Hello {target},\n\nWelcome to %1$s. We are happy to have you as a new member of our community.\n\nIt's easy to get started. Here are a few suggestions:\n\n• Create your profile and upload an avatar.\n• Connect with other users by sending friend requests.\n• Create or join groups and participate in discussions.\n• Upload your favorite photos and videos to share.\n• Invite others to events you create.\n\nThere is so much more to discover on %1$s. See you soon.\n\nSincerly,\n%1$s Team\n%2$s\n\n"  label="Your message" description="This is the message that will be sent to the user. Use {target} tag to mark the target username. The variable “%1$s” is the site name and “%2$s” is the domain name."/>		
+          		</fieldset>
+        	</fields>
+        </config>
+</extension>
